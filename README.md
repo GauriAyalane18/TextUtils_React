@@ -20,7 +20,7 @@ TextUtils is a simple React-based utility web app for analyzing and manipulating
 
 ## 📸 Screenshots
 
->image.png
+>![Textutils Preview](image.png)
 
 ---
 
