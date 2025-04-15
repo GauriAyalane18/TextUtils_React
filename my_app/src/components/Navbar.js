@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
+  const changeBackgroundColor = (color) => {
+    document.body.style.backgroundColor = color;
+  };
+
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
@@ -19,9 +23,36 @@ export default function Navbar(props) {
             </li>
           </ul>
 
+          {/* Background Color Options */}
+          <div className="d-flex">
+            <button 
+              className="btn mx-1" 
+              style={{ backgroundColor: 'blue', width: '30px', height: '30px', borderRadius: '50%' }} 
+              onClick={() => changeBackgroundColor('blue')}
+            >
+            </button>
+            <button 
+              className="btn mx-1" 
+              style={{ backgroundColor: 'green', width: '30px', height: '30px', borderRadius: '50%' }} 
+              onClick={() => changeBackgroundColor('green')}
+            >
+            </button>
+            <button 
+              className="btn mx-1" 
+              style={{ backgroundColor: 'red', width: '30px', height: '30px', borderRadius: '50%' }} 
+              onClick={() => changeBackgroundColor('red')}
+            >
+            </button>
+            <button 
+              className="btn mx-1" 
+              style={{ backgroundColor: 'white', width: '30px', height: '30px', borderRadius: '50%', border: '1px solid black' }} 
+              onClick={() => changeBackgroundColor('white')}
+            >
+            </button>
+          </div>
+
           {/* Dark Mode Toggle */}
-          
-          <div className="form-check form-switch text-light">
+          <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'} mx-3`}>
             <input 
               className="form-check-input" 
               onClick={props.toggleMode} 
