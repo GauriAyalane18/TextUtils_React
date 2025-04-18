@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
-  const changeBackgroundColor = (color) => {
-    document.body.style.backgroundColor = color;
-  };
+  // const changeBackgroundColor = (color) => {
+  //   document.body.style.backgroundColor = color;
+  // };
 
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
@@ -22,8 +22,8 @@ export default function Navbar(props) {
               <Link className="nav-link" to="/about">About</Link>
             </li>
           </ul>
-
-          {/* Background Color Options */}
+{/* 
+          /* Background Color Options
           <div className="d-flex">
             <button 
               className="btn mx-1" 
@@ -49,9 +49,8 @@ export default function Navbar(props) {
               onClick={() => changeBackgroundColor('white')}
             >
             </button>
-          </div>
+          </div> */}
 
-          {/* Dark Mode Toggle */}
           <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'} mx-3`}>
             <input 
               className="form-check-input" 
@@ -62,7 +61,7 @@ export default function Navbar(props) {
             />
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
               Enable {props.mode === 'light' ? 'Dark' : 'Light'} Mode
-            </label>
+            </label> 
           </div>
         </div>
       </div>
