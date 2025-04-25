@@ -30,7 +30,12 @@ export default function Textform(props) {
     setText(event.target.value);
   };
 
+  const handleTextColorChange = (event) => {
+    setTextColor(event.target.value);
+  };
+
   const [text, setText] = useState('');
+  const [textColor, setTextColor] = useState(props.mode === 'dark' ? 'white' : 'black');
 
   return (
     <>
@@ -46,7 +51,7 @@ export default function Textform(props) {
             rows="5"
             style={{
               backgroundColor: props.mode === 'dark' ? '#13466e' : 'white',
-              color: props.mode === 'dark' ? 'white' : 'black',
+              color: textColor,
             }}
           ></textarea>
         </div>
@@ -65,6 +70,30 @@ export default function Textform(props) {
         <button className="btn btn-warning mx-2 my-1" onClick={handleRemoveExtraSpaces} disabled={text.length === 0}>
           Remove Extra Spaces
         </button>
+
+        {/* Dropdown to Change Text Color */}
+        <div className="my-3">
+          <label htmlFor="textColorSelect" className="form-label">
+            <h2>Change Text Color:</h2>
+          </label>
+          <select
+            id="textColorSelect"
+            className="form-select form-select-sm"
+            value={textColor}
+            onChange={handleTextColorChange}
+            style={{
+              width: '150px',
+              border: '2px solid #007bff',
+              backgroundColor: '#f8f9fa',
+            }}
+          >
+            <option value="black">Black</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="red">Red</option>
+            <option value="white">White</option>
+          </select>
+        </div>
       </div>
 
       <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
